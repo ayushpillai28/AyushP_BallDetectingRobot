@@ -20,7 +20,7 @@ My second milestone involved using the ultrasonic sensors and the camera module 
   
 
 My first milestone was programming my motors to move change direction. Once I set up the Rasperry Pi, I connected the motor driver and the motors to the raspberry pi. I then used those pins to create my code. To make sure all the wires connecting the motors to the motor driver were well connected, I used a saughtering iron to connect the wires to the The first step to my code was to get the motors to move forwards and backwards and stop. Once I completed that task, I moved onto turning left and right. After my code was complete and the motors were functional, I assembled the chassis so I could see the robot in action instead of just the motors.
-[![First Milestone]
+https://www.youtube.com/watch?v=XVi2mLpFET0&ab_channel=Samotics_Autonomy
 
 
 # Diagram of Raspberry Pi Attachments
