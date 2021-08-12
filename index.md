@@ -15,7 +15,8 @@ My final milestone is the increased reliability and accuracy of my robot. I amel
 # Second Milestone
 My second milestone involved using the ultrasonic sensors and the camera module to detect other objects that may be in the path of the robot. After connecting the ultrasonic sensor to the rasperry pi, I created a program that would measure the distance the robot is from an object. Since the robot will have ultrasonic sensors on the sides and the front, this gives it the ability to recognize other vehicles or pedestrians that may crash into it and act accordingly. The camera module is used to detect objects as well but it differs from the ultrasonic sensor because it can also recognize what object it is detecting. By using OpenCV, I created a program that would allow the camera module to detect red and green as well as the shape of the object. For example, if there was a red stop sign ahead, the robot would recognize the hexagon shape and the color red and the robot would stop. This program can be expanded to other colors and shaped to recognize speed limits, traffic light colors, and other signs that are necessary to regulate traffic.
 
-[![Third Milestone]
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OFlSCI2MN3I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 # First Milestone
   
 
