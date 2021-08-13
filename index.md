@@ -31,7 +31,8 @@ The important thing is to expect the issues with the programs and accept it as b
 
 
 # Diagram of Raspberry Pi Attachments
-![Diagram](https://user-images.githubusercontent.com/88009393/127663961-c232e023-24a3-4d40-ae7d-74458c57592e.png)
+<img width="738" alt="Screen Shot 2021-08-13 at 10 17 34 AM" src="https://user-images.githubusercontent.com/88009393/129371204-141cf591-da01-4a3e-804b-3827dab0ee45.png">
+
 
 # Python Code for the Stop Sign and Ultrasonic Program
 
