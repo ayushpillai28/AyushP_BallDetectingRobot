@@ -7,7 +7,7 @@ I am working on a Raspberry Pi Machine Learning model with the eventual goal of 
 ![IMG_4862](https://user-images.githubusercontent.com/88009393/129367427-e3666b39-5e21-452c-8543-721e577492be.jpg)
 
 # Presentation
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2AjAzrMtjjs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 # Final Milestone
 For my final milestone I wanted to incorporate an ultrasonic sensor to my car as well as modify the stop sign code to make my robot more autonomous. I added an ultrasonic sensor to my robot and created a program that the robot would stop if there was anything less that 10 cm away from the robot. Once the object was removed the robot would continue to move. My stop sign code modifications included making the robot stop for two seconds once it recognizes a stop sign. I also modified the area of red necessary for the robot to classify the object as a stop sign, allowing me to move the rpbpt to the left of the sign so I don't have to pick up the sign. When I combined the modified stop sign code and ultrasonic code, it created a program that the robot would move forward until it sees the stop sign, it would then stop for two seconds, and then continue to move forward. However if the robot sees any object less than 10 cm away at any point, most commonly at the stop sign, it will stop until the object is out of the sight of the ultrasonic sencor.
