@@ -4,8 +4,8 @@ I am working on a Raspberry Pi Machine Learning model with the eventual goal of 
 |:--:|:--:|:--:|:--:|
 | Ayush P | Groton School | Engineer| Incoming Junior
 
-!![IMG_043085BC47E1-1](https://user-images.githubusercontent.com/88009393/129366499-97aa5389-fd44-4cf9-81eb-213e4fdb8f92.jpeg)
-![Name of final image]  
+[IMG_043085BC47E1-1](https://user-images.githubusercontent.com/88009393/129366499-97aa5389-fd44-4cf9-81eb-213e4fdb8f92.jpeg)
+
 # Final Milestone
 For my final milestone I wanted to incorporate an ultrasonic sensor to my car as well as modify the stop sign code to make my robot more autonomous. I added an ultrasonic sensor to my robot and created a program that the robot would stop if there was anything less that 10 cm away from the robot. Once the object was removed the robot would continue to move. My stop sign code modifications included making the robot stop for two seconds once it recognizes a stop sign. I also modified the area of red necessary for the robot to classify the object as a stop sign, allowing me to move the rpbpt to the left of the sign so I don't have to pick up the sign. When I combined the modified stop sign code and ultrasonic code, it created a program that the robot would move forward until it sees the stop sign, it would then stop for two seconds, and then continue to move forward. However if the robot sees any object less than 10 cm away at any point, most commonly at the stop sign, it will stop until the object is out of the sight of the ultrasonic sencor.
 
@@ -26,7 +26,7 @@ My first milestone was programming my motors to move change direction. Once I se
 # Diagram of Raspberry Pi Attachments
 ![Diagram](https://user-images.githubusercontent.com/88009393/127663961-c232e023-24a3-4d40-ae7d-74458c57592e.png)
 
-# Python Code for the Motors
+# Python Code for the Stop Sign and Ultrasonic Program
 
 ```python
 import RPi.GPIO as GPIO
@@ -85,4 +85,3 @@ while True:
     motor1.moveB(30,3)
     motor1.stop(2)
 ```
-# Python Code for the Ultrasonic Sensor
