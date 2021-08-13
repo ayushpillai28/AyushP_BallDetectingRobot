@@ -29,11 +29,33 @@ My first milestone was programming my motors to move change direction. Once I se
 # Python Code for the Stop Sign and Ultrasonic Program
 
 ```python
-import RPi.GPIO as GPIO
+import cv2
+import numpy as np
+import time
 from time import sleep
+import RPi.GPIO as GPIO
 
 GPIO.setmode(GPIO.BCM)
-GPIO.setwarnings(False)
+
+def nothing(x):
+    pass
+
+cap = cv2.VideoCapture(0)
+
+sign=0
+
+
+TRIG = 5
+ECHO = 6
+
+
+font = cv2.FONT_HERSHEY_COMPLEX
+
+print("hello") #check
+
+
+    #time.sleep(0.2)
+  
 
 class Motor():
     def __init__(self,Ena,In1,In2,Enb,In3,In4): #initialization function that will run the first time
@@ -49,28 +71,51 @@ class Motor():
         GPIO.setup(self.Enb,GPIO.OUT)
         GPIO.setup(self.In3,GPIO.OUT)
         GPIO.setup(self.In4,GPIO.OUT)
-        self.pwm = GPIO.PWM(self.Ena,100)
-        self.pwm = GPIO.PWM(self.Enb,100)
-        self.pwm.start(0)
+        self.pwm1 = GPIO.PWM(self.Ena,100)
+        self.pwm2 = GPIO.PWM(self.Enb,100)
+        self.pwm1.start(0)
+        self.pwm2.start(0)
         
-    def moveF(self,x=50,t=0):
+    def moveF(self,x=70, t=0):
         GPIO.output(self.In1,GPIO.LOW)
         GPIO.output(self.In2,GPIO.HIGH)
         GPIO.output(self.In3,GPIO.LOW)
         GPIO.output(self.In4,GPIO.HIGH)
-        self.pwm.ChangeDutyCycle(x) #default speed is 50 but the user can change it 
-        sleep(t)
+        self.pwm1.ChangeDutyCycle(x) #default speed is 50 but the user can change it
+        self.pwm2.ChangeDutyCycle(x)
+        
               
-    def moveB(self,x=50,t=0):
+    def moveB(self,x=70,t=0):
         GPIO.output(self.In1,GPIO.HIGH)
         GPIO.output(self.In2,GPIO.LOW)
         GPIO.output(self.In3,GPIO.HIGH)
         GPIO.output(self.In4,GPIO.LOW)
-        self.pwm.ChangeDutyCycle(x) #default speed is 50 but the user can change it 
-        sleep(t)
+        self.pwm1.ChangeDutyCycle(x) #default speed is 50 but the user can change it
+        self.pwm2.ChangeDutyCycle(x)
         
+              
+    def moveL(self,x=70):
+        GPIO.output(self.In1,GPIO.HIGH)
+        GPIO.output(self.In2,GPIO.LOW)
+        GPIO.output(self.In3,GPIO.LOW)
+        GPIO.output(self.In4,GPIO.HIGH)
+        self.pwm1.ChangeDutyCycle(x) #default speed is 50 but the user can change it
+        self.pwm2.ChangeDutyCycle(x)
+        
+        
+             
+    def moveR(self,x=70):
+        GPIO.output(self.In1,GPIO.LOW)
+        GPIO.output(self.In2,GPIO.HIGH)
+        GPIO.output(self.In3,GPIO.HIGH)
+        GPIO.output(self.In4,GPIO.LOW)
+        self.pwm1.ChangeDutyCycle(x) #default speed is 50 but the user can change it
+        self.pwm2.ChangeDutyCycle(x)
+        
+                
     def stop(self,t=0):
-        self.pwm.ChangeDutyCycle(0)
+        self.pwm1.ChangeDutyCycle(0)
+        self.pwm2.ChangeDutyCycle(0)
         GPIO.output(self.In1,GPIO.LOW)
         GPIO.output(self.In2,GPIO.LOW)
         GPIO.output(self.In3,GPIO.LOW)
@@ -79,9 +124,99 @@ class Motor():
         
 motor1 = Motor(22,27,17,23,24,25)
 
+print("while")
+
 while True:
-    motor1.moveF(30,3)
-    motor1.stop(2)
-    motor1.moveB(30,3)
-    motor1.stop(2)
+    GPIO.setup (TRIG, GPIO.OUT)
+    GPIO.setup (ECHO, GPIO.IN)
+    GPIO.output(TRIG, False)
+    sleep(0.2)
+    GPIO.output(TRIG, True)
+    #sleep(0.0001)
+    GPIO.output(TRIG, False)
+    while GPIO.input(ECHO) == 0:
+        start = time.time()
+    while GPIO.input(ECHO) == 1:
+        end = time.time()
+    duration = end-start
+    distance = duration * 17150
+    distance = round(distance,2)
+    print("distance", distance)
+    while distance<20:
+        motor1.stop()
+        GPIO.setup (TRIG, GPIO.OUT)
+        GPIO.setup (ECHO, GPIO.IN)
+        GPIO.output(TRIG, False)
+        sleep(0.2)
+        GPIO.output(TRIG, True)
+    #    sleep(0.0001)
+        GPIO.output(TRIG, False)
+        while GPIO.input(ECHO) == 0:
+            start = time.time()
+        while GPIO.input(ECHO) == 1:
+            end = time.time()
+        duration = end-start
+        distance = duration * 17150
+        distance = round(distance,2)
+        print("distance2", distance)
+            
+        
+    _,frame = cap.read()
+    hsv= cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+
+
+    lower_red = np.array ([125,154,144])
+    upper_red = np.array([180,255,243])
+    
+    mask = cv2.inRange(hsv, lower_red, upper_red)
+    kernel = np.ones((5,5), np.uint8)
+    mask=cv2.erode(mask,kernel)
+    
+    print("move")
+    motor1.moveF(70)
+    
+    _,contours,_ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    
+    for cnt in contours:
+        area = cv2.contourArea(cnt)
+        print("area", area)
+        
+        approx= cv2.approxPolyDP(cnt, 0.02*cv2.arcLength(cnt,True), True)
+        x = approx.ravel()[0]
+        y = approx.ravel()[1]
+
+
+        if area> 10000:
+    
+            cv2.drawContours(frame, [approx], 0, (0,0,0))
+            
+            print("len approx ", len(approx))
+            
+            if 6<len(approx)<9:
+                if sign == 0:
+                    cv2.putText (frame,"STOP sign", (x,y),font,1, (0,0,0))
+                    print("stop")
+                    motor1.stop(2)
+                sign += 1
+                print ("sign", sign)
+                if sign == 20:
+                    sign = 0
+      
+                
+    
+    cv2.imshow("Frame", frame)
+    cv2.imshow ("Mask", mask)
+    cv2.imshow ("kernel", kernel)
+
+    
+    k = cv2.waitKey(1)
+    
+    if k == 27:
+        print("break")
+        break
+    
+    
+cap.release()
+cv2.destroyAllWindows()
+
 ```
