@@ -6,6 +6,9 @@ I am working on a Raspberry Pi Machine Learning model with the eventual goal of 
 
 ![IMG_4862](https://user-images.githubusercontent.com/88009393/129367427-e3666b39-5e21-452c-8543-721e577492be.jpg)
 
+# Presentation
+
+
 # Final Milestone
 For my final milestone I wanted to incorporate an ultrasonic sensor to my car as well as modify the stop sign code to make my robot more autonomous. I added an ultrasonic sensor to my robot and created a program that the robot would stop if there was anything less that 10 cm away from the robot. Once the object was removed the robot would continue to move. My stop sign code modifications included making the robot stop for two seconds once it recognizes a stop sign. I also modified the area of red necessary for the robot to classify the object as a stop sign, allowing me to move the rpbpt to the left of the sign so I don't have to pick up the sign. When I combined the modified stop sign code and ultrasonic code, it created a program that the robot would move forward until it sees the stop sign, it would then stop for two seconds, and then continue to move forward. However if the robot sees any object less than 10 cm away at any point, most commonly at the stop sign, it will stop until the object is out of the sight of the ultrasonic sencor.
 
@@ -21,6 +24,10 @@ My second milestone involved using the ultrasonic sensors and the camera module 
 
 My first milestone was programming my motors to move change direction. Once I set up the Rasperry Pi, I connected the motor driver and the motors to the raspberry pi. I then used those pins to create my code. To make sure all the wires connecting the motors to the motor driver were well connected, I used a saughtering iron to connect the wires to the The first step to my code was to get the motors to move forwards and backwards and stop. Once I completed that task, I moved onto turning left and right. After my code was complete and the motors were functional, I assembled the chassis so I could see the robot in action instead of just the motors.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HMRqWIDqAzk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# Reflection
+This project was a real test of perseverance and hard work. A lesson that became apparent fairly early on was that nothing is going to work on the first try. I wrote ten or 15 programs for this project, some much smaller than the others, and every program had a lot of problems that I didn’t originally know the answer to. 
+The important thing is to expect the issues with the programs and accept it as being normal. Luckily we had instructors to help us out but even when I was working on my own I had to watch aso many youtube videos and look at hundreds of websites to solve the problems. The hardest part has to be some of the programming challenges I faced in the last week. There was a problem with the time.sleep() command which was essential to my program and it took me, my instructor, and even the rest of my family, many hours to figure it out. Even though the programming was the hardest part, it was definetly my favorite due to the problem solving it offered. Building the robot is cool but it has no function until you start programming it. And when it comes to an autonomous car, programming is everything.
 
 
 # Diagram of Raspberry Pi Attachments
