@@ -1,6 +1,5 @@
-﻿# Ball Detecting Robot with Raspberry Pi
-I am working on a Raspberry Pi Machine Learning model which will detect a ball and a robot will move towards it.
-
+﻿# Autonmous Robot with Raspberry Pi
+I am working on a Raspberry Pi Machine Learning model with the eventual goal of creating a fully autonmous car.
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Ayush P | Groton School | Engineer| Incoming Junior
@@ -8,7 +7,7 @@ I am working on a Raspberry Pi Machine Learning model which will detect a ball a
 ![Headstone Image]
 ![Name of final image]  
 # Final Milestone
-My final milestone is the increased reliability and accuracy of my robot. I ameliorated the sagging and fixed the reliability of the finger. As discussed in my second milestone, the arm sags because of weight. I put in a block of wood at the base to hold up the upper arm; this has reverberating positive effects throughout the arm. I also realized that the forearm was getting disconnected from the elbow servo’s horn because of the weight stress on the joint. Now, I make sure to constantly tighten the screws at that joint. 
+For my final milestone I wanted to incorporate an ultrasonic sensor to my car as well as modify the stop sign code to make my robot more autonomous. I added an ultrasonic sensor to my robot and created a program that the robot would stop if there was anything less that 10 cm away from the robot. Once the object was removed the robot would continue to move. My stop sign code modifications included making the robot stop for two seconds once it recognizes a stop sign. I also modified the area of red necessary for the robot to classify the object as a stop sign, allowing me to move the rpbpt to the left of the sign so I don't have to pick up the sign. When I combined the modified stop sign code and ultrasonic code, it created a program that the robot would move forward until it sees the stop sign, it would then stop for two seconds, and then continue to move forward. However if the robot sees any object less than 10 cm away at any point, most commonly at the stop sign, it will stop until the object is out of the sight of the ultrasonic sencor.
 
 [![Final Milestone]
 
