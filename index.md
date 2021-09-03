@@ -61,12 +61,10 @@ font = cv2.FONT_HERSHEY_COMPLEX
 
 print("hello") #check
 
-
-    #time.sleep(0.2)
   
 
 class Motor():
-    def __init__(self,Ena,In1,In2,Enb,In3,In4): #initialization function that will run the first time
+    def __init__(self,Ena,In1,In2,Enb,In3,In4):
         self.Ena = Ena
         self.In1 = In1
         self.In2 = In2
@@ -89,7 +87,7 @@ class Motor():
         GPIO.output(self.In2,GPIO.HIGH)
         GPIO.output(self.In3,GPIO.LOW)
         GPIO.output(self.In4,GPIO.HIGH)
-        self.pwm1.ChangeDutyCycle(x) #default speed is 50 but the user can change it
+        self.pwm1.ChangeDutyCycle(x
         self.pwm2.ChangeDutyCycle(x)
         
               
@@ -98,7 +96,7 @@ class Motor():
         GPIO.output(self.In2,GPIO.LOW)
         GPIO.output(self.In3,GPIO.HIGH)
         GPIO.output(self.In4,GPIO.LOW)
-        self.pwm1.ChangeDutyCycle(x) #default speed is 50 but the user can change it
+        self.pwm1.ChangeDutyCycle(x)
         self.pwm2.ChangeDutyCycle(x)
         
               
@@ -107,7 +105,7 @@ class Motor():
         GPIO.output(self.In2,GPIO.LOW)
         GPIO.output(self.In3,GPIO.LOW)
         GPIO.output(self.In4,GPIO.HIGH)
-        self.pwm1.ChangeDutyCycle(x) #default speed is 50 but the user can change it
+        self.pwm1.ChangeDutyCycle(x)
         self.pwm2.ChangeDutyCycle(x)
         
         
@@ -117,7 +115,7 @@ class Motor():
         GPIO.output(self.In2,GPIO.HIGH)
         GPIO.output(self.In3,GPIO.HIGH)
         GPIO.output(self.In4,GPIO.LOW)
-        self.pwm1.ChangeDutyCycle(x) #default speed is 50 but the user can change it
+        self.pwm1.ChangeDutyCycle(x)
         self.pwm2.ChangeDutyCycle(x)
         
                 
@@ -226,5 +224,6 @@ while True:
     
 cap.release()
 cv2.destroyAllWindows()
+
 
 ```
