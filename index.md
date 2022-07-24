@@ -1,7 +1,6 @@
 ﻿# Autonmous Robot with Raspberry Pi
 I am working on a Raspberry Pi Machine Learning model with the eventual goal of creating a fully autonmous car.
-| **Engineer** | **School** | **Area of Interest** | **Grade** |
-|:--:|:--:|:--:|:--:|
+
 | Ayush P | Groton School | Engineer| Incoming Junior
 
 ![IMG_4862](https://user-images.githubusercontent.com/88009393/129367427-e3666b39-5e21-452c-8543-721e577492be.jpg)
@@ -12,7 +11,6 @@ I am working on a Raspberry Pi Machine Learning model with the eventual goal of 
 # Final Milestone
 For my final milestone I wanted to incorporate an ultrasonic sensor to my car as well as modify the stop sign code to make my robot more autonomous. I added an ultrasonic sensor to my robot and created a program that the robot would stop if there was anything less that 10 cm away from the robot. Once the object was removed the robot would continue to move. My stop sign code modifications included making the robot stop for two seconds once it recognizes a stop sign. I also modified the area of red necessary for the robot to classify the object as a stop sign, allowing me to move the rpbpt to the left of the sign so I don't have to pick up the sign. When I combined the modified stop sign code and ultrasonic code, it created a program that the robot would move forward until it sees the stop sign, it would then stop for two seconds, and then continue to move forward. However if the robot sees any object less than 10 cm away at any point, most commonly at the stop sign, it will stop until the object is out of the sight of the ultrasonic sencor.
 
-[![Final Milestone]
 
 # Second Milestone
 My second milestone involved using the ultrasonic sensors and the camera module to detect other objects that may be in the path of the robot. After connecting the ultrasonic sensor to the rasperry pi, I created a program that would measure the distance the robot is from an object. Since the robot will have ultrasonic sensors on the sides and the front, this gives it the ability to recognize other vehicles or pedestrians that may crash into it and act accordingly. The camera module is used to detect objects as well but it differs from the ultrasonic sensor because it can also recognize what object it is detecting. By using OpenCV, I created a program that would allow the camera module to detect red and green as well as the shape of the object. For example, if there was a red stop sign ahead, the robot would recognize the hexagon shape and the color red and the robot would stop. This program can be expanded to other colors and shaped to recognize speed limits, traffic light colors, and other signs that are necessary to regulate traffic.
